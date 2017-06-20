@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond %{SERVER_PORT} 80
+	RewriteRule ^([^\.]+)/?$ /index.php?url=$1 [QSA,L]
+</IfModule>
