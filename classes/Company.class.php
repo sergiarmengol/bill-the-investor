@@ -27,10 +27,8 @@ class Company {
         $sql = "INSERT INTO companies (".$keys_company.")";
         $sql .= " VALUES (".$values_company.")";
         
-        $res = $app->db->query($sql);
-        echo "<pre>";
-        print_r($res);
-        echo "</pre>";
+        $res = $app->db->get_results($sql);
+   
         if($res){
             return true;
         } else {

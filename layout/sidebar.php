@@ -8,7 +8,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <br />
+        <br/>
 
         <!-- sidebar menu -->
         <nav class="navbar navbar-inverse"> 

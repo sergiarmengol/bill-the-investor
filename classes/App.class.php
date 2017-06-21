@@ -14,13 +14,9 @@ class App {
     public $route;              // String
     public $session;            // Array
     public $db;                 // Object
-    public $config;             // Array
-    public $alerts = [];
-    public $notifications = [];
     
     public $post;               // Array - POST data
     public $get;                // Array - GET data
-    public $scripts = array();  // Array
     
     
     /**

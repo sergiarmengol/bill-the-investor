@@ -1,6 +1,5 @@
 
 <?
-print_r($app->url);
 if(count($app->url) > 0) {
     $route = $app->url[0];
 } else {

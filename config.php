@@ -11,7 +11,7 @@ return [
 	            'host'      => 'localhost', //database host name, on local server it is 'localhost'
 	            'database'  => 'bill_investor', // database name
 	            'username'  => 'root',  // database username
-	            'password'  => 'root',  // user password
+	            'password'  => '',  // user password
             ],
         ],
 
