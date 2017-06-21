@@ -1,9 +1,20 @@
 <?
 session_start();
 
-// App class
-include "classes/App.class.php";
 
+// Autoload classes
+spl_autoload_register(function ($class) {
+    include 'classes/' . $class . '.class.php';
+});
+
+// Define configurations
+$config = require_once('config.php');
+// Define database configurations
+require_once 'database/database_config.php';
+// Common functions to help
+require_once 'helpers/common_helper.php';
+
+// Set session if it's the first time
 if(isset($_SESSION['user'])!== true)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -15,20 +26,12 @@ if(isset($_SESSION['user'])!== true)
     $_SESSION['user'] = hash('sha512',time().''.$randomString);
 }
 define('user', $_SESSION['user']);
-// define database
 
-$database_config = $config['connection'][$config['database']];
-$driver = $database_config['driver'];
 
-define('DATABASE', ucfirst($driver).'Database');
-define('DATABASE_NAME', $database_config['database']);
-define('DATABASE_USER', $database_config['username']);
-define('DATABASE_PASS', $database_config['password']);
-define('DATABASE_SERVER', $database_config['host']);
-
+// Start the App module
 $app = new App();
-// Include dependencies
-include "classes/Company.class.php";
+
+/**************************** ROUTES ********************************/
 
 require_once 'routes/admin_routes.php';
 

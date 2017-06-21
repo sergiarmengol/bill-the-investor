@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,18 +11,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/css/custom.css?v=1.0" rel="stylesheet" media="screen">
+    <link href="/css/bootstrap-select.min.css" rel="stylesheet">
+
 
 </head>
 
 <body class="nav-md">
 
-    <div class="container body">
+    <div id="wrapper" class="body">
         <div class="main_container">
             
-            <? require_once("layout/sidebar.php"); ?>
+            <? include("layout/sidebar.php"); ?>
 
             <!-- page content -->
-            <div class="right_col" role="main">
+            <div class="page-content-wrapper container-fluid" role="main">
           

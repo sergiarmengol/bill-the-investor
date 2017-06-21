@@ -1,6 +1,4 @@
 <?
-
-
 /*******************************************************************************
  * 
  *                            
@@ -20,8 +18,6 @@ class App {
     
     
     /**
-     * BOOTSTRAPPER
-     * ------------
      * 
      * Process request URL
      * Set current session
@@ -44,7 +40,7 @@ class App {
             $this->url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
             $this->route = str_replace("admin/", "", $_GET['url']);
         } else {
-            $this->url[0] = "";
+            $this->url[0] = "/";
         }
         
         if($_POST) {

@@ -22,7 +22,6 @@ if(!isset($db)) {
 	// at the same time - db_user / db_password / db_name / db_host
 	$db = new ezSQL_mysql($account_db_usr, $account_db_pwd, $account_db_name, $account_db_server, '');
 
-
 }
 
 

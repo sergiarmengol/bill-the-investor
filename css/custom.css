@@ -2,3 +2,21 @@
     background-color: #337ab7;
     color:white;
 }
+
+td > a{
+    color: #707070 !important;
+    text-decoration: none;
+}
+
+form#newExchange {
+    padding: 15px;
+    background-color: #222222;
+    color: white;
+    border-radius: 5px;
+}
+.panel {
+	margin:15px 0px 0px 0px !important;
+}
+.panel .panel-heading {
+	padding:15px 25px; 
+}
