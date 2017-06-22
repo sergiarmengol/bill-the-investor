@@ -8,12 +8,11 @@
       <div class="panel-body">
 
         <div class="row">
-          <? $count= 0; ?>
           <? if(isset($companies_grouped)) : ?>
             <? foreach($companies_grouped as $company_name => $group) : ?>
               <? foreach($group as $stock_type => $group_type) : ?>
                 <div class="col-md-3">
-                  <div class="panel <?= $count == 0 ? 'panel-primary' : 'panel-success' ?>">
+                  <div class="panel panel-success">
                       <div class="panel-heading">
                           <div class="row">
                               <div class="col-xs-3">
@@ -34,7 +33,6 @@
                         </a>
                       <? endforeach; ?>
                   </div>
-                   <? $count++; ?>
               <? endforeach ;?>
              
             <? endforeach ;?>
@@ -87,7 +85,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-7 col-xs-12">
+    <div id="graphicsDiv" class="col-md-7 col-xs-12">
       <div class="row">
         <div class="col-md-12 col-xs-12">
           <br>

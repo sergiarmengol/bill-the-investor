@@ -29,5 +29,12 @@ form#newExchange, .form-style {
     color:white;
 }
 div#chart_div {
-    padding: 55px 0px;
+    padding: 55px 0px 25px;
+}
+.tick-remove {
+    color:tomato;
+}
+.tick-remove:hover {
+    cursor:pointer;
+    transform: scale(1.1);
 }

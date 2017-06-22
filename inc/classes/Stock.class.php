@@ -15,6 +15,7 @@ class Stock {
 	public $exchange_id;	// Int
 	public $exchange_name;	// String
 	public $stock_type_id;	// Int
+    public $stock_type_name;  // Name
 	public $price;			// Float
     public $time;
     public $date;
@@ -25,8 +26,14 @@ class Stock {
 	public function __construct($id = null, $stock=array()) {
 		global $db;
         if ($id && !$stock) {
-            $sql = "SELECT * FROM ".self::TABLE." WHERE id = ".$id;
+            $sql = "SELECT st.*, com.name 'company_name', ex.name 'exchange_name', st_t.name 'stock_type_name' FROM ".self::TABLE." AS st";
+            $sql .= " INNER JOIN companies AS com on com.id = st.company_id";
+            $sql .= " INNER JOIN exchange AS ex on ex.id = st.exchange_id";
+            $sql .= " INNER JOIN stock_types AS st_t on st_t.id = st.stock_type_id";
+            $sql .= " WHERE st.id = ".$id;
+
             $stock = $db->get_row($sql);
+
         }
         
         if($stock) {
@@ -36,17 +43,20 @@ class Stock {
             $this->exchange_id = $stock->exchange_id;
             $this->exchange_name = $stock->exchange_name;
             $this->stock_type_id = $stock->stock_type_id;
+            $this->stock_type_name = $stock->stock_type_name;
             $this->price = $stock->price;
             $this->date =  date('d.m.Y',strtotime($stock->date_created));
             $this->time =  date("H:i:s",strtotime($stock->date_created));
         }
+
+ 
 	}
 
 	public function add($data){
       	global $db;
 
         if(!$data) return false;
-        
+        $id = "";
         $company_id = $data['company_id'];
         $exchange_id = $data['exchange_id'];
         $stock_type_id = $data['stock_type_id'];
@@ -57,8 +67,8 @@ class Stock {
         $check = $db->get_var($sql_check);
 
         if(isset($check)) {
-        	$id = $check;
-        	 $sql = "UPDATE ".self::TABLE." SET 
+    	   $id = $check;
+    	   $sql = "UPDATE ".self::TABLE." SET 
                     company_id = '".$company_id."', 
                     exchange_id = '".$exchange_id."', 
                     stock_type_id = '".$stock_type_id."', 
@@ -77,9 +87,18 @@ class Stock {
         }
         
         
-
         $res = $db->query($sql);
-        return $res ? true : false;
+
+        if(empty($id)) {
+            $id = $db->insert_id;
+        }
+
+        if($res) {
+            $stock = new self($id);
+
+            return $stock ? $stock : false;
+        } 
+        
 	}
 
 
@@ -136,4 +155,14 @@ class Stock {
 
         return $stocks;
 	}
+
+    public function delete() {
+        global $db;
+        if($this->id) {
+            $sql = "DELETE FROM ".self::TABLE." WHERE id =".$this->id;
+            $res = $db->query($sql);
+
+            return !empty($res) ? true : false;
+        }
+    }
 }

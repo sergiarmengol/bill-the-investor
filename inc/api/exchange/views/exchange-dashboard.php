@@ -6,7 +6,7 @@
 			    <div class="panel-heading">
 			      <h3>Exchange markets</h3>  
 			    </div>
-	    		<div class="panel-body">
+	    		<div class="panel-body table-col">
 		    
 				 	<? if(isset($success) && $success == true) : ?>
 					    <div class="alert alert-success">

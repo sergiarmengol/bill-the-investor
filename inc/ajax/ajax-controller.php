@@ -1,14 +1,18 @@
 <?
 
 switch ($app->url[1]) {
+
+	// Ajax call to create new exchange market
     case 'newExchange' : 
        	$exchange = new Exchange();
         $success = $exchange->add($_POST);
 
         if($success == true) {
-            echo json_encode(array("response"=>success,"data"=>$_POST));
+            echo json_encode(array("response"=>'success',"data"=>$_POST));
         }
     break;
+
+    // Ajax call to get data prepared for the charts
     case 'getChartData':
 	     // Statistics stocks for the dashboard
 	    $statistics_stocks  = getStatisticsStocks(
@@ -50,6 +54,31 @@ switch ($app->url[1]) {
 		}
 
 	    echo json_encode(array("company_by_price" => $company_by_price, "company_by_market" => $company_by_market));
+    break;
+
+	// Ajax call to create new stock
+    case 'newStock' : 
+       	$stock = new Stock();
+        $new_stock = $stock->add($_POST);
+
+        if($new_stock) {
+            echo json_encode(array("response"=>'success',"data"=>$new_stock));
+        }
+    break;
+
+	// Ajax call to delete stock
+  
+    case 'deleteStock':
+    	if($_POST) {
+    		$stock = new Stock($_POST['id']);
+    		$success = $stock->delete();
+
+    		if($success) {
+    			echo json_encode(array("response" => 'success'));
+    		} else {
+    			echo json_encode(array("response" => 'error'));
+    		}
+    	}
     break;
 
     
