@@ -52,9 +52,10 @@ $query = $db->query($sql);
 
 
 $sql = "INSERT INTO `companies` (`id`, `name`, `state`, `address`, `description`)
-VALUES
-	(1,'Kiveo AG',1,NULL,NULL),
-	(2,'Matadeo AG',1,NULL,NULL)";
+VALUES 
+  (1,'Kiveo AG',1,'Südstrasse Baar, Cantón de Zug','Working hard to improve cloud-based software solutions'),
+	(2,'Matadeo AG',1,'11 OberneuhofstrasseBaar, Cantón de Zug','Always the best software solutions for Corporate Communications'),
+  (3,'Tensid AG',1,'Schochenmühlestrasse 4, 6340 Baar, Suiza','Elegant digital corporate communications as a cloud service')";
 
 $query = $db->query($sql);
 
@@ -134,11 +135,10 @@ VALUES
 	(2,1,1,2,100,'2017-06-21 19:30:25'),
 	(3,2,3,2,200,'2017-06-21 19:30:25'),
 	(4,1,2,1,210,'2017-06-21 19:30:25'),
-	(5,2,1,2,150,'2017-06-21 19:30:38'),
-	(6,3,5,2,0,'2017-06-21 20:04:53')";
+	(5,2,1,2,150,'2017-06-21 19:30:38')";
 
 $query = $db->query($sql);
 
 echo "<pre>";
-print_r($db);
+echo " DATABASE SETUP DONE!";
 echo "</pre>";

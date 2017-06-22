@@ -34,7 +34,7 @@ switch ($app->url[1]) {
 	    $total_exchange = count($group_market_by);
 
 	    // Convert data to be useful for the google chart display bar plot
-        $company_by_price = array(["Company Name","Common Stock ( € )","Preferred Stock ( € )"]);
+        $company_by_price = array(["Company Name","Preferred Stock ( € )","Common Stock ( € )"]);
 
 
 	    foreach($group_company_by as $company => $stock_company) {
