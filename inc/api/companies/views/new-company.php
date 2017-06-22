@@ -25,7 +25,7 @@
             <label for="exampleInputEmail1">State</label><br>
               <div class="btn-group" data-toggle="buttons">
                   <label class="btn btn-primary active">
-                    <input value="1" type="radio" name="state" id="active" autocomplete="off" checked="" > Active
+                    <input value="1" type="radio" name="state" id="active" autocomplete="off" checked="checked" > Active
                   </label>
                   <label class="btn btn-primary">
                     <input value="0" type="radio" name="state" id="desactive" autocomplete="off"> Desactive

@@ -37,6 +37,7 @@ function CompaniesView($view) {
 
         	// New company
 			$company = new Company();
+
 			$success = $company->add($app->post);
         }
 

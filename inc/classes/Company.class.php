@@ -34,7 +34,7 @@ class Company {
         global $db;
 
         if(!$data) return false;
-        
+
         $name = $data['name'];
         $state = $data['state'];
         $address = $data['address'];
@@ -44,7 +44,7 @@ class Company {
         $sql = "INSERT INTO ".self::TABLE." (name,state,address,description) 
                 VALUES (
                 '".$name."',
-                '".$name."',
+                '".$state."',
                 '".$address."',
                 '".$description."'
                 )";
