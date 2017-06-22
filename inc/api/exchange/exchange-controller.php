@@ -8,13 +8,13 @@ if(count($app->url) > 1) {
 
 switch($section) {
 	case "new-exchange":
-		$view = 'exchange/views/new-exchange.php';
+		$view = 'inc/api/exchange/views/new-exchange.php';
 	break;
 	case "edit-exchange":
-		$view = 'exchange/views/edit-exchange.php';
+		$view = 'inc/api/exchange/views/edit-exchange.php';
 	break;
 	default:
-		$view = 'exchange/views/exchange-dashboard.php';
+		$view = 'inc/api/exchange/views/exchange-dashboard.php';
 	break;
 }
 

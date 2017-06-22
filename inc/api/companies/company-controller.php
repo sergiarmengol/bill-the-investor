@@ -8,13 +8,13 @@ if(count($app->url) > 1) {
   
 switch($section) {
 	case "new-company":
-		$view = 'companies/views/new-company.php';
+		$view = 'inc/api/companies/views/new-company.php';
 	break;
 	case "edit-company":
-		$view = 'companies/views/edit-company.php';
+		$view = 'inc/api/companies/views/edit-company.php';
 	break;
 	default:
-		$view = 'companies/views/company-dashboard.php';
+		$view = 'inc/api/companies/views/company-dashboard.php';
 	break;
 }
 

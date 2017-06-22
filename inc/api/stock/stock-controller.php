@@ -8,7 +8,7 @@ if(count($app->url) > 1) {
 
 switch($section) {
 	default:
-		$view = 'stock/views/stock-dashboard.php';
+		$view = 'inc/api/stock/views/stock-dashboard.php';
 	break;
 }
 

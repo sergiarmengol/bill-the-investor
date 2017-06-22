@@ -4,15 +4,15 @@ session_start();
 
 // Autoload classes
 spl_autoload_register(function ($class) {
-    include 'classes/' . $class . '.class.php';
+    include 'inc/classes/' . $class . '.class.php';
 });
 
 // Define configurations
 $config = require_once('config.php');
 // Define database configurations
-require_once 'database/database_config.php';
+require_once 'inc/database/database_config.php';
 // Common functions to help
-require_once 'helpers/common_helper.php';
+require_once 'inc/helpers/common_helper.php';
 
 // Set session if it's the first time
 if(isset($_SESSION['user'])!== true)
@@ -33,7 +33,7 @@ $app = new App();
 
 /**************************** ROUTES ********************************/
 
-require_once 'routes/admin_routes.php';
+require_once 'inc/routes/admin_routes.php';
 
 
 

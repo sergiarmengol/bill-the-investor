@@ -15,28 +15,28 @@ if(count($app->url) > 0) {
 
 switch($route) {
     case 'dashboard':
-        require_once 'dashboard/dashboard-controller.php';
+        require_once 'inc/api/dashboard/dashboard-controller.php';
         break;
     case 'companies':
-        include "companies/company-controller.php";
+        include "inc/api/companies/company-controller.php";
         break;
         
     case 'exchange-market':
-        include "exchange/exchange-controller.php";
+        include "inc/api/exchange/exchange-controller.php";
         break;
 
     case 'stocks':
-        include "stock/stock-controller.php";
+        include "inc/api/stock/stock-controller.php";
     break;
 
     case 'ajax':
 
-        include 'ajax/ajax-controller.php';
+        include 'inc/ajax/ajax-controller.php';
     break;
     case 'setupdatabase':
-        include("database/setup/_database_setup.php");
+        include("inc/api/database/setup/_database_setup.php");
     break;
     default:
-        require_once 'dashboard/dashboard-controller.php';
+        require_once 'inc/api/dashboard/dashboard-controller.php';
     break;
 }

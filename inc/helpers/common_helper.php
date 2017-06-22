@@ -11,9 +11,9 @@ function loadView($view, $data) {
     
     extract($data);
     
-    include 'layout/header.php';
+    include 'inc/layout/header.php';
     require_once $view;
-    include 'layout/footer.php';
+    include 'inc/layout/footer.php';
     
     exit; // Always end script after footer
 }
@@ -47,7 +47,7 @@ function getStatisticsStocks($params = array()) {
 
             ),$params);
 
-        $sql = "SELECT DISTINCT com.name 'company_name', ex.name 'exchange_name', st.*, st_t.name 'stock_type_name' FROM companies AS com";
+        $sql = "SELECT DISTINCT com.name 'company_name',com.id 'company_id', st.exchange_id, ex.name 'exchange_name', st.*, st_t.name 'stock_type_name' FROM companies AS com";
         $sql .=" INNER JOIN stocks AS st ON st.company_id = com.id";
         $sql .= " INNER JOIN exchange AS ex ON ex.id = st.exchange_id";
         $sql .= " INNER JOIN stock_types AS st_t ON st_t.id = st.stock_type_id";
@@ -58,9 +58,8 @@ function getStatisticsStocks($params = array()) {
             }
         }
 
-    
         $res = $db->get_results($sql);
-
+  
 
         if (!empty($res)) {
             return $res;

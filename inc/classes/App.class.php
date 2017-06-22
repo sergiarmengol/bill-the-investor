@@ -24,7 +24,7 @@ class App {
      * Set global config
      */
     public function __construct() {
-        include 'database/_database.php';
+        include 'inc/database/_database.php';
         $this->parseUrl();
         $this->session = $_SESSION;
         $this->db = $db;

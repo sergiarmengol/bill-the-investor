@@ -8,7 +8,6 @@ if (ini_get('display_errors')) {
 $base =  "/xampp/htdocs";
 
 ini_set('include_path', get_include_path() . PATH_SEPARATOR . $base);
-
 // Init controller
 require_once 'inc/init.php';
 

@@ -25,7 +25,7 @@
                           </div>
                       </div>
                       <? foreach($group_type as $t) : ?>
-                        <a href="/exchange-market/edit-exchange?id=<?= $high_price->exchange_id ?>">
+                        <a href="/exchange-market/edit-exchange?id=<?= $t->exchange_id ?>">
                             <div class="panel-footer">
                                 <span class="pull-left"><?= $t->exchange_name ?></span>
                                 <span class="pull-right"><?= $t->price ?> €</span>

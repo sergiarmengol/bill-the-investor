@@ -24,11 +24,12 @@ function DashboardView() {
 
 	$data['companies_grouped'] = $companies_grouped;
 
+
 	// Stocks order by price
 	$data['companies_high_price'] = $statistics_stocks;
 
 
-	loadView('dashboard/views/dashboard-view.php', $data);
+	loadView('inc/api/dashboard/views/dashboard-view.php', $data);
 }
 
 

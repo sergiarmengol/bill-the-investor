@@ -22,7 +22,7 @@
     <div id="wrapper" class="body">
         <div class="main_container">
             
-            <? include("layout/sidebar.php"); ?>
+            <? include("inc/layout/sidebar.php"); ?>
 
             <!-- page content -->
             <div class="page-content-wrapper container-fluid" role="main">
