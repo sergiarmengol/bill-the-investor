@@ -25,14 +25,12 @@
                   </a>
                 </td>
                 <td width="30%">
-                  <a href="/companies/edit-company?id=<?= $company->id ?>">
                     <?= $company->address ? $company->address : ''?>          
-                  </a>
                 </td>
                 <td width="30%">
-                  <a href="/companies/edit-company?id=<?= $company->id ?>">
+
                     <?= $company->description ? $company->description : ''?>          
-                  </a>
+            
                 </td>
 
                 <td width="10%">

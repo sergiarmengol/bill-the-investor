@@ -51,7 +51,7 @@ function getStatisticsStocks($params = array()) {
         $sql .=" INNER JOIN stocks AS st ON st.company_id = com.id";
         $sql .= " INNER JOIN exchange AS ex ON ex.id = st.exchange_id";
         $sql .= " INNER JOIN stock_types AS st_t ON st_t.id = st.stock_type_id";
-
+        $sql .= " WHERE com.state = 1 AND ex.state = 1";
         if(isset($params['order_by'])) {
               if(is_array($params['order_by'])) {
                 $sql .= " ORDER BY ".$params['order_by'][0]." ".$params['order_by'][1];

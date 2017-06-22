@@ -24,9 +24,9 @@
                 <? foreach ($exchange_stocks as $key => $stock) : ?>
                   <tr>
                     <td width="30%">
-                      <a href="/companies/edit-company?id=<?= $stock->company_id ?>">
-                        <?= $stock->company_name ? $stock->company_name : ''?>          
-                      </a>
+            
+                      <?= $stock->company_name ? $stock->company_name : ''?>          
+ 
                   </td>
                   <td width="30%">
                       <?= $stock->stock_type_id ? $stock_types[$stock->stock_type_id]: ''?>                       
