@@ -1,3 +1,7 @@
+.page-content-wrapper {
+    padding-top: 25px;
+}
+
 .nav > li.active {
     background-color: #337ab7;
     color:white;
@@ -8,7 +12,7 @@ td > a{
     text-decoration: none;
 }
 
-form#newExchange {
+form#newExchange, .form-style {
     padding: 15px;
     background-color: #222222;
     color: white;
@@ -19,4 +23,11 @@ form#newExchange {
 }
 .panel .panel-heading {
 	padding:15px 25px; 
+}
+.panel.panel-orange {
+    background-color:#fd9b1d;
+    color:white;
+}
+div#chart_div {
+    padding: 55px 0px;
 }

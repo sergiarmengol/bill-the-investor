@@ -9,11 +9,24 @@ function DashboardView() {
     global $app;
  
     $data = array();
-	foreach(Company::getStatisticsStocks() as $company) {
-		$companies_grouped[$company->name][$company->stock_type_name][] = $company;
+
+    // Statistics stocks for the dashboard
+    $statistics_stocks = getStatisticsStocks(
+    	array(
+    		'order_by' => ['price','DESC']
+    		)
+    	);
+
+	// Order By company and his stock type
+	foreach($statistics_stocks as $company) {
+		$companies_grouped[$company->company_name][$company->stock_type_name][] = $company;
 	}
 
 	$data['companies_grouped'] = $companies_grouped;
+
+	// Stocks order by price
+	$data['companies_high_price'] = $statistics_stocks;
+
 
 	loadView('dashboard/views/dashboard-view.php', $data);
 }

@@ -93,25 +93,7 @@ class Company {
             return array();
         }
     }
-    public static function getStatisticsStocks($get = array()) {
-        global $db;
-
-        $sql = "SELECT DISTINCT com.*, ex.name 'exchange_name', st.price, st_t.name 'stock_type_name' FROM companies AS com";
-        $sql .=" INNER JOIN stocks AS st ON st.company_id = com.id";
-        $sql .= " INNER JOIN exchange AS ex ON ex.id = st.exchange_id";
-        $sql .= " INNER JOIN stock_types AS st_t ON st_t.id = st.stock_type_id";
-
-
-
-        $res = $db->get_results($sql);
-
-
-        if (!empty($res)) {
-            return $res;
-        } else {
-            return array();
-        }
-    }
+    
 
    
 }

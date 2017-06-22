@@ -1,6 +1,11 @@
 
 $(document).ready(function(){
+  google.charts.load('current', {packages: ['corechart', 'bar']});
+  google.charts.setOnLoadCallback(drawDualY);
+  $(window).resize(function(){
+    drawDualY();
 
+  });
 });
 
 // Add new Exchange market to the list via ajax
@@ -39,4 +44,33 @@ $('#newExchangeButton').click(function(){
     });
   }
 });
+
+
+
+function drawDualY() {
+
+    var jsonData = $.ajax({
+          url: "/ajax/getChartData/",
+          dataType: "json",
+          async: false
+          }).responseText;
+    console.log(JSON.parse(jsonData));
+      
+      var data = new google.visualization.arrayToDataTable(JSON.parse(jsonData).company_by_price);
+      var data_pie = new google.visualization.arrayToDataTable(JSON.parse(jsonData).company_by_market);
+      var options = {
+        colors: ['#1b9e77','#7570b3'],
+
+      };
+      var options_pie = {
+        is3D: true,
+      };
+
+      var materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+      materialChart.draw(data,options);
+
+      var piechart = new google.visualization.PieChart(document.getElementById('chart_pie_div'));
+
+      piechart.draw(data_pie,options_pie);
+}
 
