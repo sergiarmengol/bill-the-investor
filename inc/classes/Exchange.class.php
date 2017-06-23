@@ -125,4 +125,15 @@ class Exchange {
         return $res ? $res : array();
     }
 
+       // Delete Exchange Market from BBDD
+    public function delete() {
+        global $db;
+        if($this->id) {
+            $sql = "DELETE FROM ".self::TABLE." WHERE id =".$this->id;
+            $res = $db->query($sql);
+
+            return !empty($res) ? true : false;
+        }
+    }
+
 }

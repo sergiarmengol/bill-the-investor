@@ -15,7 +15,7 @@ class Stock {
 	public $exchange_id;	// Int
 	public $exchange_name;	// String
 	public $stock_type_id;	// Int
-    public $stock_type_name;  // Name
+    public $stock_type_name;  // String
 	public $price;			// Float
     public $time;
     public $date;
@@ -156,6 +156,8 @@ class Stock {
         return $stocks;
 	}
 
+
+    // Delete Stock from BBDD
     public function delete() {
         global $db;
         if($this->id) {

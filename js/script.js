@@ -127,6 +127,39 @@ $('#newExchangeButton').click(function(){
 
 /********************************************************/
 
+/****** Delete stock via AJAX *****/
+$(document.body).on('click','.remove-exchange',function(){
+  exchange_id = $(this).attr('data-id');
+  console.log(exchange_id);
+  $('#deleteExchangeButton').attr('data-id',exchange_id);
+});
+
+$('#deleteExchangeButton').click(function(){
+  exchange_id = $(this).attr('data-id');
+  data = {"id":exchange_id};
+  if(exchange_id !== "") {
+    $.ajax({
+      data:  data,
+      url:   '/ajax/deleteExchange/',
+      type:  'post',
+      dataType:'json',
+      beforeSend: function(){
+
+      },
+      success:  function (response) {
+        if(response.response == "success") {
+       
+            $('#exchange_'+exchange_id).remove();
+            $('#deleteExchangeModal').modal('hide');
+          } else {
+            console.log("error removing exchange");
+          }
+        
+              
+      }
+    });
+  }
+});
 
 /**
 *   Google charts function 

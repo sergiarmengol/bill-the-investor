@@ -4,12 +4,34 @@ switch ($app->url[1]) {
 
 	// Ajax call to create new exchange market
     case 'newExchange' :
-       	$exchange = new Exchange();
-        $success = $exchange->add(array_map('strip_tags',$app->post));
+    	if($app->post) {
+	       	$exchange = new Exchange();
+	        $success = $exchange->add(array_map('strip_tags',$app->post));
 
-        if($success == true) {
-            echo json_encode(array("response"=>'success',"data"=>array_map('strip_tags',$app->post)));
-        }
+	        if($success == true) {
+	            echo json_encode(array("response"=>'success',"data"=>array_map('strip_tags',$app->post)));
+	        } else {
+	        	 echo json_encode(array("response"=>'error'));
+	        }
+    	} else {
+ 			echo json_encode(array("error"=>'error'));
+    	}
+
+    break;
+
+  	// Ajax call to delete Exchange market
+    case 'deleteExchange':
+    	if($app->post) {
+    		$exchange = new Exchange($app->post['id']);
+    		$success = $exchange->delete();
+
+    		if($success) {
+    			echo json_encode(array("response" => 'success'));
+    		} else {
+    			echo json_encode(array("response" => 'error'));
+    		}
+    	}
+
     break;
 
     // Ajax call to get data prepared for the charts

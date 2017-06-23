@@ -19,20 +19,21 @@
 					  <table class="table">
 					    <thead>
 					      <tr>
-					        <th width="50%">Market name</th>
-					        <th width="10%">State</th>
+					        <th width="75%">Market name</th>
+					        <th width="15%">State</th>
+					        <th width="10%"></th>
 					      </tr>
 					    </thead>
 					    <tbody>
 					    	<? foreach ($exchange_markets as $key => $exchange) : ?>
-						      <tr>
-						        <td width="50%">
+						      <tr id="exchange_<?= $exchange->id ?>">
+						        <td width="75%">
 						        	<a href="/exchange-market/edit-exchange?id=<?= $exchange->id ?>">
 						        		<?= $exchange->name ? $exchange->name : ''?>    			
 					        		</a>
 					    		</td>
 					    		
-						        <td width="10%">
+						        <td width="15%">
 						        	<? 
 						        	if($exchange->state == 0) {
 						    			$label="danger";
@@ -44,6 +45,7 @@
 						        	?>
 						        	<span class="label label-<?= $label ?>"><?= $state ?></span>
 						        </td>
+						        <td width="10%" data-toggle="modal" data-target="#deleteExchangeModal" class="remove-exchange" data-id="<?= $exchange->id ?>"><span class="glyphicon glyphicon-remove tick-remove"></span></td>
 						      </tr>
 					  		<? endforeach; ?>
 					     
@@ -86,3 +88,18 @@
 	  	</div>
 	</div>
 </div>
+
+<div id="deleteExchangeModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Are you sure to delete this Exchange Market ?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button id="deleteExchangeButton" data-id="" type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
