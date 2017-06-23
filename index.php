@@ -5,7 +5,7 @@ if (ini_get('display_errors')) {
   ini_set('display_errors', '0');
 }
 
-$base =  "/xampp/htdocs/bill";
+$base =  "/xampp/htdocs";
 
 ini_set('include_path', get_include_path() . PATH_SEPARATOR . $base);
 // Init controller
