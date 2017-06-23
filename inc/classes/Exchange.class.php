@@ -34,7 +34,7 @@ class Exchange {
 
         if(!$data) return false;
         
-        $name = $data['name'];
+        $name = cleanInputText($data['name']);
         $state = $data['state'];
 
         
@@ -53,8 +53,8 @@ class Exchange {
         
         if(!$data) return false;
         
-        $name         = $data['name'];
-        $state     = $data['state'];
+        $name = cleanInputText($data['name']);
+        $state = $data['state'];
 
         
         $sql = "UPDATE ".self::TABLE." SET 

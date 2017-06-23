@@ -44,11 +44,11 @@ class App {
         }
         
         if($_POST) {
-            $this->post = $_POST;
+            $this->post = array_map("cleanInputText", $_POST);
         }
         
         if($_GET) {
-            $this->get = $_GET;
+            $this->get = array_map("cleanInputText", $_GET);
         }
     }
 

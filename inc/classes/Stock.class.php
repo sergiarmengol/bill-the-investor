@@ -60,7 +60,7 @@ class Stock {
         $company_id = $data['company_id'];
         $exchange_id = $data['exchange_id'];
         $stock_type_id = $data['stock_type_id'];
-        $price = $data['price'];
+        $price = cleanInputText($data['price']);
 
         $sql_check = "SELECT id FROM ".self::TABLE." WHERE company_id = ".$company_id." AND stock_type_id = ".$stock_type_id. " AND exchange_id = ".$exchange_id;
 

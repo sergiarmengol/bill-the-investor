@@ -88,7 +88,9 @@ $('#deleteStockButton').click(function(){
 
 /************ Add new Exchange market to the list via ajax ***********/
 $('#newExchangeButton').click(function(){
+ 
   data = $('#newExchange').serialize();
+
   if(data !== "") {
     $.ajax({
       data:  data,
@@ -136,7 +138,6 @@ function drawDualY() {
           dataType: "json",
           async: false
           }).responseText;
-    console.log(JSON.parse(jsonData));
       
       var data = new google.visualization.arrayToDataTable(JSON.parse(jsonData).company_by_price);
       var data_pie = new google.visualization.arrayToDataTable(JSON.parse(jsonData).company_by_market);
@@ -155,4 +156,11 @@ function drawDualY() {
 
       piechart.draw(data_pie,options_pie);
 }
+
+
+/**
+* Strip html tags from string 
+**/
+
+
 

@@ -3,12 +3,12 @@
 switch ($app->url[1]) {
 
 	// Ajax call to create new exchange market
-    case 'newExchange' : 
+    case 'newExchange' :
        	$exchange = new Exchange();
-        $success = $exchange->add($_POST);
+        $success = $exchange->add(array_map('strip_tags',$app->post));
 
         if($success == true) {
-            echo json_encode(array("response"=>'success',"data"=>$_POST));
+            echo json_encode(array("response"=>'success',"data"=>array_map('strip_tags',$app->post)));
         }
     break;
 
@@ -59,7 +59,7 @@ switch ($app->url[1]) {
 	// Ajax call to create new stock
     case 'newStock' : 
        	$stock = new Stock();
-        $new_stock = $stock->add($_POST);
+        $new_stock = $stock->add($app->post);
 
         if($new_stock) {
             echo json_encode(array("response"=>'success',"data"=>$new_stock));
@@ -70,7 +70,7 @@ switch ($app->url[1]) {
   
     case 'deleteStock':
     	if($_POST) {
-    		$stock = new Stock($_POST['id']);
+    		$stock = new Stock($app->post['id']);
     		$success = $stock->delete();
 
     		if($success) {

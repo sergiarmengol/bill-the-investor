@@ -35,10 +35,10 @@ class Company {
 
         if(!$data) return false;
 
-        $name = $data['name'];
+        $name = cleanInputText($data['name']);
         $state = $data['state'];
-        $address = $data['address'];
-        $description = $data['description'];
+        $address = cleanInputText($data['address']);
+        $description = cleanInputText($data['description']);
 
         
         $sql = "INSERT INTO ".self::TABLE." (name,state,address,description) 
@@ -59,10 +59,10 @@ class Company {
         
         if(!$data) return false;
         
-        $name = $data['name'];
+        $name = cleanInputText($data['name']);
         $state = $data['state'];
-        $address = $data['address'];
-        $description = $data['description'];
+        $address = cleanInputText($data['address']);
+        $description = cleanInputText($data['description']);
 
         
         $sql = "UPDATE ".self::TABLE." SET 
